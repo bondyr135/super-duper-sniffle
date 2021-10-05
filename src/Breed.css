@@ -1,0 +1,13 @@
+.breedDiv {
+  height: 10%;
+}
+
+button {
+  height: 100%;
+  width: 80%;
+  justify-self: center;
+}
+
+.clicked {
+  color: cyan;
+}

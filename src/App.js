@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
+import DogsList from './DogsList';
+import Photos from './Photos';
 
 function App() {
+
+  const [ breed, setBreed ] = useState('')
+  const [ reqCount, setReqCount ] = useState(1)
+
+  /// HANDLES CLICKING ON A BREED
+  function handleClick (e){
+    if (e.type === 'click') {
+      let newBreed = e.target.innerHTML.toLowerCase();
+      newBreed = newBreed.split(' ').reverse().join('/');
+      setReqCount(1)
+      setBreed(newBreed)
+    } else {
+      setReqCount(reqCount + 1)
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>
+    <DogsList className="list" choose={handleClick} breed={breed} />
+    <Photos className="photos" refresh={handleClick} breed={breed} counter={reqCount} />
+  </>
   );
 }
 

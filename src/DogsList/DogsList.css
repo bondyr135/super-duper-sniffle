@@ -1,0 +1,10 @@
+.breedsList {
+  background-color: rgb(239, 239, 255);
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.breedItem {
+  grid-template: 1fr;
+}

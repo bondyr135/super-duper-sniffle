@@ -1,5 +1,5 @@
 import React from 'react'
-import Breed from './Breed'
+import Breed from '../Breed/Breed'
 import './DogsList.css'
 
 export default function DogsList({ choose, breed }) {
@@ -18,11 +18,11 @@ export default function DogsList({ choose, breed }) {
 
 
   return (
-    <div className="breedsList">
+    <aside className="breedsList">
         {BREEDS.map(name => {
-          return <Breed key={name} breedName={name} clicked={choose} breed={breed}/>
+          return <Breed className="breedItem" key={name} breedName={name} clicked={choose} breed={breed}/>
         })
       }
-    </div>
+    </aside>
   )
 }

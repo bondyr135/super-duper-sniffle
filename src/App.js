@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css';
-import DogsList from './DogsList';
-import Photos from './Photos';
+import DogsList from './DogsList/DogsList';
+import Photos from './Photos/Photos';
 
 function App() {
 

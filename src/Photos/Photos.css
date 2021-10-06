@@ -1,0 +1,41 @@
+.photos {
+  background-color: rgb(240, 233, 255);
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 9fr;
+}
+
+.refreshButton {
+  height: 80%;
+  width: 40%;
+  justify-self: center;
+  align-self: center;
+  font-size: 20px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 800;
+  border-radius: 5px;
+}
+
+.gallery {
+  display: grid;
+  height: 90vh;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  column-gap: 5px;
+  overflow: hidden;
+}
+
+.dogPic {
+  width: 180px;
+  justify-self: center;
+  align-self: center;
+}
+
+img {
+  height: 18vh;
+  transition: all 0.2s ease-in-out;
+}
+
+img:hover {
+  transform: scale(1.2);
+}

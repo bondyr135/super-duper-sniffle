@@ -35,13 +35,13 @@ export default function Photos({ refresh, breed, counter }) {
   }
 
   return (
-    <div className="photos">
+    <main className="photos">
       <button onClick={refreshPhotos} className="refreshButton">REFRESH</button>
       <div className="gallery">
       {images.map(img => {
         return <img key={`${img}`} src={`${img}`} alt='Something went wrong' className="dogPic" />
       })}
       </div>
-    </div>
+    </main>
   )
 }

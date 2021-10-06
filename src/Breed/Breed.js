@@ -1,16 +1,15 @@
 import React from 'react'
 import './Breed.css'
 
-export default function Breed({ breedName, clicked, breed }) {
+export default function Breed({ breedName, clicked, shownBreed }) {
 
-  const parsedName = breedName.split(' ').reverse().join('/');
-  const isClicked = breed === parsedName.toLowerCase() ? 'button clicked' : 'button';
+  /// CHECKS WHETHER THE CURRENT RENDERED BREED IS THE ONE DISPLAYED
+  const parsedName = breedName.split(' ').reverse().join('/').toLowerCase();
+  const isClicked = parsedName === shownBreed ? 'breedButton clicked' : 'breedButton';
 
   return (
-    <div className={"breedDiv"}>
-      <button onClick={clicked} className={isClicked}>
+      <button onClick={clicked} className={isClicked} value={parsedName} >
         {breedName}
       </button>
-    </div> 
   )
 }

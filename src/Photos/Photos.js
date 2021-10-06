@@ -1,46 +1,39 @@
 import React, { useState, useEffect } from 'react'
 import './Photos.css'
 
-export default function Photos({ refresh, breed, counter }) {
-  const [ images, setImages ] = useState([])
+export default function Photos({ displayedBreed, refresh, counter }) {
+  const [ images, setImages ] = useState([]);
 
-  function refreshPhotos() {
-    const refreshEvent = new Event('refresh')
-    refresh(refreshEvent)
-  }
-
-  /// CHANGES STATE WHENEVER A NEW BREED IS SELECTED\PAGE UPLOADS
+  /// CHANGES STATE WHENEVER A NEW BREED IS SELECTED OR A REFRESH REQUEST IS MADE
   useEffect(() => {
-    if (breed !== '' ) {
-      callDogs();
-  }
-  }, [breed, counter])
+    if (displayedBreed !== '' ) {
 
-  /// MAKES ACTUALL API REQUEST
-  function callDogs() {
-    const pages = counter * 10;
-    fetch(
-      `https://dog.ceo/api/breed/${breed}/images/random/${pages}`
-    )
-    .then(res => {
-      return res.json();
-    })
-    .then(data => {
-      let rawImages = data.message;
-      setImages(rawImages.splice(rawImages.length - 10))
-    })
-    .catch(e => 
-      console.log(e)
-    )
+      /// ACTUAL API CALL
+    async function callDogs() {
+        const numOfDogs = counter * 10;
+      try {
+        const response = await fetch(`https://dog.ceo/api/breed/${displayedBreed}/images/random/${numOfDogs}`);
+        const data = await response.json();
+        let rawImages = data.message;
+        setImages(rawImages.splice(rawImages.length - 10));
+      } catch(e) { 
+        alert('Apperantly something went wrong while trying to reach the API');
+      }
+    };
+
+    callDogs();
   }
+  }, [displayedBreed, counter])
+
+
 
   return (
     <main className="photos">
-      <button onClick={refreshPhotos} className="refreshButton">REFRESH</button>
+      <button onClick={refresh} className="refreshButton">REFRESH</button>
       <div className="gallery">
-      {images.map(img => {
-        return <img key={`${img}`} src={`${img}`} alt='Something went wrong' className="dogPic" />
-      })}
+        {images.map(img => {
+          return <img key={`${img}`} src={`${img}`} alt='Something went wrong' className="dogPic" />
+        })}
       </div>
     </main>
   )

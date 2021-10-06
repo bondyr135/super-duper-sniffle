@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './App.css';
-import DogsList from './DogsList/DogsList';
+import BreedsList from './BreedsList/BreedsList';
 import Photos from './Photos/Photos';
 
 function App() {
@@ -9,21 +9,21 @@ function App() {
   const [ reqCount, setReqCount ] = useState(1)
 
   /// HANDLES CLICKING ON A BREED
-  function handleClick (e){
-    if (e.type === 'click') {
-      let newBreed = e.target.innerHTML.toLowerCase();
-      newBreed = newBreed.split(' ').reverse().join('/');
-      setReqCount(1)
-      setBreed(newBreed)
-    } else {
-      setReqCount(reqCount + 1)
-    }
+  function selectBreed (e) {
+    let newBreed = e.target.value;
+    setReqCount(1)
+    setBreed(newBreed)
+  }
+
+  /// HANDLES A CLICK ON THE REFRESH BUTTON
+  function refreshPhotos (e) {
+    setReqCount(reqCount + 1)
   }
 
   return (
   <>
-    <DogsList className="list" choose={handleClick} breed={breed} />
-    <Photos className="photos" refresh={handleClick} breed={breed} counter={reqCount} />
+    <BreedsList className="list" clickOnBreed={selectBreed} displayedBreed={breed} />
+    <Photos className="photos" refresh={refreshPhotos} displayedBreed={breed} counter={reqCount} />
   </>
   );
 }

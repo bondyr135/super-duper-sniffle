@@ -15,12 +15,12 @@ Writen as a home-assignment for `MyndYou`.
 2. ### Install:
 
 - Using your command line, navigate to the folder to which you download the repo
-- Run # **`npm install`** in the command line and wait for the command to finish
+- Run **`npm install`** in the command line and wait for the command to finish
 
 3. ### Run:
 
-- Run # **`npm start`** in the command line, and wait for app to open in your browser
+- Run **`npm start`** in the command line, and wait for app to open in your browser
 
-4. ## _`ADMIRE`_
+4. ### _`ADMIRE`_
 
 - Kidding. But I sure did my best!

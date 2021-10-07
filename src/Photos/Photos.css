@@ -29,6 +29,7 @@
   width: 180px;
   justify-self: center;
   align-self: center;
+  object-fit: cover;
 }
 
 img {

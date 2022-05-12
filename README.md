@@ -20,7 +20,3 @@ Writen as a home-assignment for `MyndYou`.
 3. ### Run:
 
 - Run **`npm start`** in the command line, and wait for app to open in your browser
-
-4. ### _`ADMIRE`_
-
-- Kidding. But I sure did my best!
